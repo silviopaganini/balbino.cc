@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { Heading, Box } from 'theme-ui'
+import { Heading, Box, Flex } from 'theme-ui'
 import { motion } from 'framer-motion'
+import { useGlobalState } from 'state'
 
 type Align = 'left' | 'right'
 
@@ -33,18 +34,21 @@ const AnimHeading = motion.custom(Heading)
 
 const ProjectItem = ({ label, align = 'left' }: Props) => {
     const [state, setState] = useState({ hover: false })
+    const [uiState, setUiState] = useGlobalState('ui')
     const onMouseOver = () => {
         setState({ ...state, hover: true })
+        setUiState({ ...uiState, showCircle: false })
     }
     const onMouseOut = () => {
         setState({ ...state, hover: false })
+        setUiState({ ...uiState, showCircle: true })
     }
 
     return (
-        <Box
+        <Flex
             sx={{
                 width: '50%',
-                justifyItems: align === 'left' ? 'flex-start' : 'flex-end',
+                justifyContent: align === 'left' ? 'flex-start' : 'flex-end',
                 position: 'relative',
             }}
         >
@@ -72,7 +76,7 @@ const ProjectItem = ({ label, align = 'left' }: Props) => {
             >
                 {label}
             </AnimHeading>
-        </Box>
+        </Flex>
     )
 }
 

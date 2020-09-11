@@ -2,12 +2,15 @@ import React, { useRef } from 'react'
 import { Box } from 'theme-ui'
 import useMouse from '@react-hook/mouse-position'
 import { motion } from 'framer-motion'
+import { useGlobalState } from 'state'
 
 const AnimBox = motion.custom(Box)
 
 const ScrollToDiscover = () => {
     const ref = useRef(null)
     const mouse = useMouse(document.body, {})
+    const [state] = useGlobalState('ui')
+
     const SIZE = 261
 
     return (
@@ -32,7 +35,7 @@ const ScrollToDiscover = () => {
                     duration: 0.2,
                 }}
                 animate={{
-                    opacity: mouse.x ? 1 : 0,
+                    opacity: state.showCircle && mouse.x ? 1 : 0,
                     x: (mouse.clientX || window.innerWidth / 2) - SIZE / 2,
                     y: (mouse.clientY || window.innerHeight / 2) - SIZE / 2,
                 }}

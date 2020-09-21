@@ -1,61 +1,68 @@
+import { Theme } from 'theme-ui'
+
 export default {
-    space: [0, 4, 8, 16, 32, 60, 80, 256, 512],
-    fonts: {
-        body:
-            'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-        heading: 'inherit',
+  space: [0, 4, 8, 16, 32, 60, 80, 256, 512],
+  fonts: {
+    body:
+      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+    heading: 'inherit',
+  },
+  fontSizes: [22, 56],
+  fontWeights: {
+    body: 400,
+    heading: 500,
+    bold: 500,
+  },
+  lineHeights: {
+    body: 1.5,
+    heading: 1.16,
+  },
+  colors: {
+    text: '#000',
+    background: '#fff',
+    primary: '#C1C4B7',
+  },
+  images: {
+    project: {
+      maxWidth: '100%',
     },
-    fontSizes: [22, 56],
-    fontWeights: {
-        body: 400,
-        heading: 500,
-        bold: 500,
+  },
+  text: {
+    projectItem: {
+      color: 'text',
+      fontFamily: 'heading',
+      lineHeight: 'heading',
+      fontWeight: 'heading',
+      fontSize: 1,
     },
-    lineHeights: {
-        body: 1.5,
-        heading: 1.16,
+  },
+  styles: {
+    '*': {
+      boxSizing: 'border-box',
     },
-    colors: {
-        text: '#000',
-        background: '#fff',
-        primary: '#C1C4B7',
+    root: {
+      fontFamily: 'body',
+      lineHeight: 'body',
+      fontWeight: 'body',
+      padding: '60px 80px',
+      position: 'relative',
+      minHeight: 'calc(100vh - 120px)',
     },
-    text: {
-        projectItem: {
-            color: 'text',
-            fontFamily: 'heading',
-            lineHeight: 'heading',
-            fontWeight: 'heading',
-            fontSize: 1,
-        },
+    h1: {
+      color: 'text',
+      fontFamily: 'heading',
+      lineHeight: 'heading',
+      fontWeight: 'heading',
+      fontSize: 1,
     },
-    styles: {
-        '*': {
-            boxSizing: 'border-box',
-        },
-        root: {
-            fontFamily: 'body',
-            lineHeight: 'body',
-            fontWeight: 'body',
-            padding: '60px 80px',
-            position: 'relative',
-            minHeight: 'calc(100vh - 120px)',
-        },
-        h1: {
-            color: 'text',
-            fontFamily: 'heading',
-            lineHeight: 'heading',
-            fontWeight: 'heading',
-            fontSize: 1,
-        },
-        p: {
-            color: 'text',
-            fontFamily: 'body',
-            fontWeight: 'body',
-            lineHeight: 'body',
-        },
-        a: {
-            color: 'primary',
-        },
+    p: {
+      color: 'text',
+      fontFamily: 'body',
+      fontWeight: 'body',
+      lineHeight: 'body',
     },
-}
+    a: {
+      color: 'primary',
+    },
+  },
+} as Theme

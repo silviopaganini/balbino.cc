@@ -1,17 +1,27 @@
 import React from 'react'
+import { ApolloProvider } from '@apollo/client'
 import ReactDOM from 'react-dom'
 import { ThemeProvider } from 'theme-ui'
 import App from './components/App'
 import * as serviceWorker from './serviceWorker'
 import theme from './theme'
 
+import { ApolloClient, InMemoryCache } from '@apollo/client'
+
+const client = new ApolloClient({
+  uri: 'https://api-eu-central-1.graphcms.com/v2/ckfcsyz640l9w01w95zir2mur/master',
+  cache: new InMemoryCache(),
+})
+
 ReactDOM.render(
-    <React.StrictMode>
-        <ThemeProvider theme={theme}>
-            <App />
-        </ThemeProvider>
-    </React.StrictMode>,
-    document.getElementById('root')
+  <React.StrictMode>
+    <ApolloProvider client={client}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </ApolloProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
 )
 
 // If you want your app to work offline and load faster, you can change

@@ -4,7 +4,7 @@ import { Flex } from 'theme-ui'
 import ProjectItem from '../ProjectItem'
 
 const Projects = () => {
-  const [projects] = useGlobalState('projects')
+  const [{ projects }] = useGlobalState('content')
   return (
     <Flex sx={{ minHeight: 'inherit', alignItems: 'center' }}>
       <Flex

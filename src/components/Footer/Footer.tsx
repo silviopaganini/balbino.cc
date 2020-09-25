@@ -1,7 +1,12 @@
+import { Link } from 'components'
 import React from 'react'
 import { Box, Grid } from 'theme-ui'
 
-const Header = () => {
+type Props = {
+  onClickAbout(): void
+}
+
+const Footer = ({ onClickAbout }: Props) => {
   return (
     <Grid
       sx={{
@@ -18,10 +23,18 @@ const Header = () => {
       gap={0}
       width="50%"
     >
-      <Box>Instagram</Box>
-      <Box sx={{ textAlign: 'right' }}>About Marcos</Box>
+      <Box>
+        <Link href="http://instagram.com/balbinomarcos" target="_blank" rel="noopener noreferrer">
+          Instagram
+        </Link>
+      </Box>
+      <Box sx={{ textAlign: 'right' }}>
+        <Link onClick={onClickAbout} to="about">
+          About Marcos
+        </Link>
+      </Box>
     </Grid>
   )
 }
 
-export default Header
+export default Footer

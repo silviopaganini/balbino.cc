@@ -1,18 +1,27 @@
-import React, { FunctionComponent } from 'react'
-import { Box } from 'theme-ui'
+import React, { PropsWithChildren } from 'react'
+import { Box, SxStyleProp } from 'theme-ui'
 
-const Section: FunctionComponent = ({ children }) => {
-    return (
-        <Box
-            as="section"
-            sx={{
-                minHeight: 'inherit',
-                position: 'relative',
-            }}
-        >
-            {children}
-        </Box>
-    )
+type Props = {
+  id?: string
+  as?: 'section' | 'article'
+  sx?: SxStyleProp
+}
+
+const Section = ({ as = 'section', children, id, sx }: PropsWithChildren<Props>) => {
+  return (
+    <Box
+      id={id}
+      as={as}
+      sx={{
+        minHeight: 'inherit',
+        position: 'relative',
+        height: '100vh',
+        ...sx,
+      }}
+    >
+      {children}
+    </Box>
+  )
 }
 
 export default Section

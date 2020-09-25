@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Grid } from 'theme-ui'
 import moment from 'moment-timezone'
+import Link from 'components/Link'
 moment().tz('America/Los_Angeles').format()
 
 const Header = () => {
@@ -32,8 +33,10 @@ const Header = () => {
       width="50%"
     >
       <Box>
-        marcosbalbino ©<br />
-        selected work 2015 — {new Date().getFullYear()}
+        <Link to="home">
+          marcosbalbino ©<br />
+          selected work 2015 — {new Date().getFullYear()}
+        </Link>
       </Box>
       <Box sx={{ textAlign: 'right' }}>London, UK {time}</Box>
     </Grid>

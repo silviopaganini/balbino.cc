@@ -1,20 +1,24 @@
 import { createGlobalState } from 'react-hooks-global-state'
-import { Project } from 'types'
+import { Page, Project } from 'types'
 
 type InitialState = {
   ui: {
     showCircle: boolean
   }
-  projects: Project[]
-  activeProject: Project | null
+  content: {
+    projects: Project[]
+    pages: Page[]
+  }
 }
 
 const initialState: InitialState = {
   ui: {
     showCircle: true,
   },
-  projects: [],
-  activeProject: null,
+  content: {
+    projects: [],
+    pages: [],
+  },
 }
 
 export const { useGlobalState } = createGlobalState(initialState)

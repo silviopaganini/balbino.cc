@@ -3,6 +3,7 @@ import { Heading, Box, Flex } from 'theme-ui'
 import { motion } from 'framer-motion'
 import { useGlobalState } from 'state'
 import { Project } from 'types'
+import { Link } from 'components'
 
 type Align = 'left' | 'right'
 
@@ -36,7 +37,6 @@ const AnimHeading = motion.custom(Heading)
 const ProjectItem = ({ project, align = 'left' }: Props) => {
   const [state, setState] = useState({ hover: false })
   const [uiState, setUiState] = useGlobalState('ui')
-  const [, setActiveProject] = useGlobalState('activeProject')
   const onMouseOver = () => {
     setState({ ...state, hover: true })
     setUiState({ ...uiState, showCircle: false })
@@ -53,9 +53,6 @@ const ProjectItem = ({ project, align = 'left' }: Props) => {
         justifyContent: align === 'left' ? 'flex-start' : 'flex-end',
         position: 'relative',
       }}
-      onClick={() => {
-        setActiveProject(project)
-      }}
     >
       {state.hover && (
         <Box
@@ -68,19 +65,21 @@ const ProjectItem = ({ project, align = 'left' }: Props) => {
           <IconHover align={align} />
         </Box>
       )}
-      <AnimHeading
-        onMouseOut={onMouseOut}
-        onMouseOver={onMouseOver}
-        animate={{ x: state.hover ? (align === 'left' ? 60 : -60) : 0 }}
-        sx={{
-          cursor: 'pointer',
-          textAlign: align,
-          color: state.hover ? 'primary' : 'text',
-        }}
-        variant="projectItem"
-      >
-        {project.title}
-      </AnimHeading>
+      <Link to={project.slug}>
+        <AnimHeading
+          onMouseOut={onMouseOut}
+          onMouseOver={onMouseOver}
+          animate={{ x: state.hover ? (align === 'left' ? 60 : -60) : 0 }}
+          sx={{
+            cursor: 'pointer',
+            textAlign: align,
+            color: state.hover ? 'primary' : 'text',
+          }}
+          variant="projectItem"
+        >
+          {project.title}
+        </AnimHeading>
+      </Link>
     </Flex>
   )
 }

@@ -9,24 +9,28 @@ type Props = {
   project: ProjectType
 }
 
-const Project = ({ project }: Props) => (
-  <Markdown
-    options={{
-      overrides: {
-        img: {
-          component: Image,
-          props: {
-            variant: 'project',
+const Project = ({ project }: Props) => {
+  if (!project.content || project.content === '') return null
+
+  return (
+    <Markdown
+      options={{
+        overrides: {
+          img: {
+            component: Image,
+            props: {
+              variant: 'project',
+            },
+          },
+          a: {
+            component: Link,
           },
         },
-        a: {
-          component: Link,
-        },
-      },
-    }}
-  >
-    {project.content}
-  </Markdown>
-)
+      }}
+    >
+      {project.content}
+    </Markdown>
+  )
+}
 
 export default Project

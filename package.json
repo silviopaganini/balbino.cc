@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
-    "@types/theme-ui": "^0.3.6"
+    "@types/theme-ui": "^0.3.6",
+    "firebase-tools": "^8.11.2"
   }
 }

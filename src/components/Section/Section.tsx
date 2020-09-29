@@ -13,9 +13,8 @@ const Section = ({ as = 'section', children, id, sx }: PropsWithChildren<Props>)
       id={id}
       as={as}
       sx={{
-        minHeight: 'inherit',
         position: 'relative',
-        height: '100vh',
+        minHeight: '100vh',
         ...sx,
       }}
     >

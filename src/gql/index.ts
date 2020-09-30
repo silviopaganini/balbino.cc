@@ -7,7 +7,7 @@ export const query = gql`
       title
       body
     }
-    projects(orderBy: order_ASC) {
+    projects(orderBy: order_DESC) {
       slug
       title
       content

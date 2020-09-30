@@ -10,6 +10,7 @@ export const query = gql`
     projects(orderBy: order_DESC) {
       slug
       title
+      order
       content
     }
   }

@@ -12,11 +12,15 @@ const App = () => {
   const [, setMode] = useColorMode()
 
   useEffect(() => {
-    data && setContent(data)
+    let projects = []
+    if (data?.projects) {
+      projects = [...data.projects].sort((a: any, b: any) => (b.order || 0) - (a.order || 0))
+    }
+    data && setContent({ pages: data.pages, projects })
     setMode('default')
   }, [data, setContent, setMode])
 
-  if (loading) return <p>Loading...</p>
+  if (loading || content.projects.length < 1) return <p>Loading...</p>
   if (error) return <p>Error :(</p>
 
   const aboutPage = content.pages.find(p => p.slug === 'about')
@@ -30,11 +34,12 @@ const App = () => {
       <Section id="home">
         <Projects />
       </Section>
-      {content.projects.map((p, index) => (
-        <Section as="article" id={p.slug} key={index}>
-          <Project project={p} />
-        </Section>
-      ))}
+      {content.projects.length > 0 &&
+        content.projects.map((p, index) => (
+          <Section as="article" id={p.slug} key={index}>
+            <Project project={p} />
+          </Section>
+        ))}
       {aboutPage && (
         <Section id="about" as="section">
           <Page page={aboutPage} />

@@ -1,6 +1,7 @@
 export type Project = {
   content: string
   title: string
+  order: number
   slug: string
 }
 

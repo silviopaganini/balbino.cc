@@ -16,7 +16,12 @@ const Projects = () => {
         }}
       >
         {projects.map((m, index) => (
-          <ProjectItem align={index % 2 !== 0 ? 'right' : 'left'} key={index} project={m} />
+          <ProjectItem
+            index={index}
+            align={index % 2 !== 0 ? 'right' : 'left'}
+            key={index}
+            project={m}
+          />
         ))}
       </Flex>
     </Flex>

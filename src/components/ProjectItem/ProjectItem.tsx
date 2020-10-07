@@ -10,6 +10,7 @@ type Align = 'left' | 'right'
 type Props = {
   project: Project
   align?: Align
+  index: number
 }
 
 type PropsIcon = {
@@ -34,7 +35,7 @@ const IconHover = ({ align }: PropsIcon) => (
 
 const AnimHeading = motion.custom(Heading)
 
-const ProjectItem = ({ project, align = 'left' }: Props) => {
+const ProjectItem = ({ index, project, align = 'left' }: Props) => {
   const [state, setState] = useState({ hover: false })
   const [uiState, setUiState] = useGlobalState('ui')
   const onMouseOver = () => {
@@ -44,6 +45,18 @@ const ProjectItem = ({ project, align = 'left' }: Props) => {
   const onMouseOut = () => {
     setState({ ...state, hover: false })
     setUiState({ ...uiState, showCircle: true })
+  }
+
+  const variants = {
+    initial: {
+      y: '100%',
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      x: 0,
+      opacity: 1,
+    },
   }
 
   return (
@@ -65,19 +78,29 @@ const ProjectItem = ({ project, align = 'left' }: Props) => {
           <IconHover align={align} />
         </Box>
       )}
+
       <Link to={project.slug}>
         <AnimHeading
           onMouseOut={onMouseOut}
           onMouseOver={onMouseOver}
           animate={{ x: state.hover ? (align === 'left' ? 60 : -60) : 0 }}
+          transition={{ duration: 0.2, ease: 'easeOut' }}
           sx={{
             cursor: 'pointer',
             textAlign: align,
             color: state.hover ? 'primary' : 'text',
+            overflowY: 'hidden',
           }}
           variant="projectItem"
         >
-          {project.title}
+          <motion.div
+            variants={variants}
+            initial={'initial'}
+            animate="visible"
+            transition={{ delay: index * 0.07, duration: 0.5, ease: 'easeOut' }}
+          >
+            {project.title}
+          </motion.div>
         </AnimHeading>
       </Link>
     </Flex>

@@ -1,4 +1,5 @@
 import React, { PropsWithChildren } from 'react'
+import theme from 'theme'
 import { Box, SxStyleProp } from 'theme-ui'
 
 type Props = {
@@ -14,7 +15,8 @@ const Section = ({ as = 'section', children, id, sx }: PropsWithChildren<Props>)
       as={as}
       sx={{
         position: 'relative',
-        minHeight: '100vh',
+        minHeight: `calc(100vh - ${theme.space![5]}px - ${theme.space![5]}px)`,
+        mb: 5,
         ...sx,
       }}
     >

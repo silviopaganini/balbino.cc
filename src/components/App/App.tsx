@@ -9,7 +9,8 @@ import { useColorMode } from 'theme-ui'
 const App = () => {
   const { loading, error, data } = useQuery(query)
   const [content, setContent] = useGlobalState('content')
-  const [, setMode] = useColorMode()
+  const [aboutVisible, setAboutVisible] = useGlobalState('about')
+  const [mode, setMode] = useColorMode()
 
   useEffect(() => {
     let projects = []
@@ -25,7 +26,13 @@ const App = () => {
 
   const aboutPage = content.pages.find(p => p.slug === 'about')
   const onClickAbout = () => {
-    setMode('dark')
+    setTimeout(
+      () => {
+        setMode(mode !== 'dark' ? 'dark' : 'default')
+      },
+      mode === 'dark' ? 300 : 0
+    )
+    setAboutVisible(!aboutVisible)
   }
 
   return (
@@ -40,13 +47,12 @@ const App = () => {
             <Project project={p} />
           </Section>
         ))}
-      {aboutPage && (
-        <Section id="about" as="section">
-          <Page page={aboutPage} />
-        </Section>
-      )}
+      {aboutPage && <Page visible={aboutVisible} page={aboutPage} />}
       <ScrollToDiscover />
-      <Footer onClickAbout={onClickAbout} />
+      <Footer
+        firstProjectSlug={content.projects.length > 0 ? content.projects[0].slug : undefined}
+        onClickAbout={onClickAbout}
+      />
     </>
   )
 }

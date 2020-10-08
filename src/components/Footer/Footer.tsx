@@ -1,12 +1,30 @@
 import { Link } from 'components'
-import React from 'react'
+import { motion } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
+import { useGlobalState } from 'state'
 import { Box, Grid } from 'theme-ui'
 
 type Props = {
   onClickAbout(): void
+  firstProjectSlug?: string
 }
 
-const Footer = ({ onClickAbout }: Props) => {
+const Div = motion.custom(Box)
+
+const Footer = ({ onClickAbout, firstProjectSlug }: Props) => {
+  const [aboutVisible] = useGlobalState('about')
+  const [showScroll, setShowScroll] = useState(true)
+  useEffect(() => {
+    const onScroll = () => {
+      setShowScroll(window.scrollY < 100)
+    }
+    window.addEventListener('scroll', onScroll)
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+    }
+  })
+
   return (
     <Grid
       sx={{
@@ -23,15 +41,14 @@ const Footer = ({ onClickAbout }: Props) => {
       gap={0}
       width="50%"
     >
-      <Box>
-        <Link href="http://instagram.com/balbinomarcos" target="_blank" rel="noopener noreferrer">
-          Instagram
-        </Link>
-      </Box>
+      <Div
+        animate={{ opacity: showScroll ? 1 : 0 }}
+        sx={{ pointerEvents: showScroll ? 'visible' : 'none' }}
+      >
+        {!aboutVisible && <Link to={firstProjectSlug}>Scroll to see more</Link>}
+      </Div>
       <Box sx={{ textAlign: 'right' }}>
-        <Link onClick={onClickAbout} to="about">
-          About Marcos
-        </Link>
+        <Link onClick={onClickAbout}>{!aboutVisible ? 'About Marcos' : 'Back'}</Link>
       </Box>
     </Grid>
   )

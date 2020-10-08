@@ -2,7 +2,7 @@ import React from 'react'
 import Markdown from 'markdown-to-jsx'
 
 import { Project as ProjectType } from 'types'
-import { Link, Image } from 'components'
+import { Container, Paragraph, Link, Image } from 'components'
 
 type Props = {
   project: ProjectType
@@ -20,6 +20,12 @@ const Project = ({ project }: Props) => {
           },
           a: {
             component: Link,
+          },
+          div: {
+            component: Container,
+          },
+          p: {
+            component: Paragraph,
           },
         },
       }}

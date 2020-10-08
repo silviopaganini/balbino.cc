@@ -9,6 +9,7 @@ type InitialState = {
     projects: Project[]
     pages: Page[]
   }
+  about: boolean
 }
 
 const initialState: InitialState = {
@@ -19,6 +20,7 @@ const initialState: InitialState = {
     projects: [],
     pages: [],
   },
+  about: false,
 }
 
 export const { useGlobalState } = createGlobalState(initialState)

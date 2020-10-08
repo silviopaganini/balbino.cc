@@ -5,11 +5,10 @@ export default {
   useColorSchemeMediaQuery: false,
   space: [0, 4, 8, 20, 32, 60, 80, 256, 512],
   fonts: {
-    body:
-      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+    body: 'NHaasGroteskDSPro-55Rg',
     heading: 'inherit',
   },
-  fontSizes: [22, 56],
+  fontSizes: [32, 56],
   fontWeights: {
     body: 400,
     heading: 500,
@@ -88,6 +87,14 @@ export default {
       fontWeight: 'heading',
       fontSize: 1,
     },
+    p: {
+      color: 'text',
+      fontFamily: 'body',
+      lineHeight: 'body',
+      fontWeight: 'body',
+      fontSize: 0,
+      py: 3,
+    },
   },
   styles: {
     '*': {
@@ -99,7 +106,6 @@ export default {
       fontWeight: 'body',
       padding: '60px 80px',
       position: 'relative',
-      minHeight: 'calc(100vh - 120px)',
     },
     h1: {
       color: 'text',

@@ -6,6 +6,7 @@ moment().tz('America/Los_Angeles').format()
 
 const Header = () => {
   const [time, setTime] = useState(moment().tz('Europe/London').format('HH:mm:ss'))
+  // const [aboutVisible] = useGlobalState('about')
   useEffect(() => {
     const updateTime = () => {
       setTime(moment().tz('Europe/London').format('HH:mm:ss'))

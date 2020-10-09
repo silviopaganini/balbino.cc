@@ -86,7 +86,6 @@ const ProjectItem = ({ index, project, align = 'left' }: Props) => {
           animate={{ x: state.hover ? (align === 'left' ? 60 : -60) : 0 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
           sx={{
-            cursor: 'pointer',
             textAlign: align,
             color: state.hover ? 'primary' : 'text',
             overflowY: 'hidden',

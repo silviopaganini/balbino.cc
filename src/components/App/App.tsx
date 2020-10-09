@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { ScrollToDiscover, Project } from 'components'
+import { ScrollToDiscover, Project, Loading } from 'components'
 import { useQuery } from '@apollo/client'
 import { useGlobalState } from 'state'
 import { query } from '../../gql'
@@ -21,7 +21,7 @@ const App = () => {
     setMode('default')
   }, [data, setContent, setMode])
 
-  if (loading || content.projects.length < 1) return <p>Loading...</p>
+  if (loading || content.projects.length < 1) return <Loading />
   if (error) return <p>Error :(</p>
 
   const aboutPage = content.pages.find(p => p.slug === 'about')

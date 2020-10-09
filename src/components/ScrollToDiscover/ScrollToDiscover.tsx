@@ -29,10 +29,11 @@ const ScrollToDiscover = () => {
         sx={{
           pointerEvents: 'none',
           position: 'absolute',
-          bg: 'black',
+          bg: '#333',
           width: SIZE,
           height: SIZE,
           borderRadius: '100%',
+          backgroundBlendMode: 'exclusion',
         }}
         transition={{
           ease: 'easeOut',

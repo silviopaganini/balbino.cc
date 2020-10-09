@@ -49,7 +49,7 @@ export default {
   links: {
     body: {
       color: 'linkBody',
-      cursor: 'pointer',
+      cursor: 'none !important',
     },
     default: {
       variant: 'styles.a',
@@ -57,7 +57,7 @@ export default {
   },
   buttons: {
     primary: {
-      cursor: 'pointer',
+      cursor: 'none !important',
       backgroundColor: 'background',
       borderWidth: '2px',
       borderStyle: 'solid',
@@ -99,6 +99,7 @@ export default {
   styles: {
     '*': {
       boxSizing: 'border-box',
+      cursor: 'none !important',
     },
     root: {
       fontFamily: 'body',
@@ -106,6 +107,7 @@ export default {
       fontWeight: 'body',
       padding: '60px 80px',
       position: 'relative',
+      cursor: 'none !important',
     },
     h1: {
       color: 'text',
@@ -121,10 +123,10 @@ export default {
       lineHeight: 'body',
     },
     a: {
-      cursor: 'pointer',
       color: 'link',
       textDecoration: 'none',
       transition: 'color .2s',
+      cursor: 'none !important',
       '&:hover': {
         color: 'hover',
       },

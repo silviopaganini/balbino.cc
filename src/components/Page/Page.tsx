@@ -3,7 +3,7 @@ import Markdown from 'markdown-to-jsx'
 
 import { Page as PageType } from 'types'
 import { Box, Flex, Image } from 'theme-ui'
-import { Link, Button } from 'components'
+import { Link, Button, Container, Paragraph } from 'components'
 import { motion } from 'framer-motion'
 
 type Props = {
@@ -46,7 +46,6 @@ const Page = ({ page, visible }: Props) => {
     >
       <AnimPage
         sx={{
-          maxHeight: '40vh',
           flexWrap: 'wrap',
           flexDirection: 'row',
           justifyContent: 'space-between',
@@ -54,7 +53,7 @@ const Page = ({ page, visible }: Props) => {
         variants={variants}
         transition={{ delay: !visible ? 0 : 0.3, duration: 0.5, ease: 'easeOut' }}
       >
-        <Box sx={{ maxWidth: 765 }}>
+        <Box sx={{ maxWidth: 1280 }}>
           <Markdown
             options={{
               overrides: {
@@ -75,6 +74,12 @@ const Page = ({ page, visible }: Props) => {
                   props: {
                     variant: 'primary',
                   },
+                },
+                div: {
+                  component: Container,
+                },
+                p: {
+                  component: Paragraph,
                 },
               },
             }}

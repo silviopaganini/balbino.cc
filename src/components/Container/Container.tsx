@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
-import { Box } from 'theme-ui'
+import { Box, SxStyleProp } from 'theme-ui'
 import VisibilitySensor from 'react-visibility-sensor'
 import { motion } from 'framer-motion'
 
 type Props = {
-  children: JSX.Element
+  children: JSX.Element[]
+  as?: React.ElementType
+  sx?: SxStyleProp
 }
 
 const AnimBox = motion.custom(Box)
 
-const Container = ({ children }: Props) => {
+const Container = ({ children, sx, as = 'div' }: Props) => {
   const variants = {
     hidden: {
       opacity: 0,
@@ -30,10 +32,12 @@ const Container = ({ children }: Props) => {
   return (
     <VisibilitySensor partialVisibility minTopValue={200} onChange={onChange}>
       <AnimBox
+        as={as}
         animate={state ? 'visible' : 'hidden'}
         variants={variants}
         transition={{ duration: 1, ease: 'easeInOut' }}
         initial="hidden"
+        sx={{ position: 'relative', ...sx }}
       >
         {children}
       </AnimBox>

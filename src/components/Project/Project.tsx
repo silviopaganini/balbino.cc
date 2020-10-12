@@ -24,6 +24,17 @@ const Project = ({ project }: Props) => {
           div: {
             component: Container,
           },
+          span: {
+            component: Container,
+            props: {
+              as: 'span',
+              sx: {
+                padding: '56.25% 0 0 0',
+                position: 'relative',
+                display: 'block',
+              },
+            },
+          },
           p: {
             component: Paragraph,
           },

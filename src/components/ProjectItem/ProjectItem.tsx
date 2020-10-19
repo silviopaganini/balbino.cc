@@ -62,8 +62,8 @@ const ProjectItem = ({ index, project, align = 'left' }: Props) => {
   return (
     <Flex
       sx={{
-        width: '50%',
-        justifyContent: align === 'left' ? 'flex-start' : 'flex-end',
+        width: ['100%', '100%', '50%'],
+        justifyContent: ['left', 'left', align === 'left' ? 'flex-start' : 'flex-end'],
         position: 'relative',
       }}
     >
@@ -86,7 +86,7 @@ const ProjectItem = ({ index, project, align = 'left' }: Props) => {
           animate={{ x: state.hover ? (align === 'left' ? 60 : -60) : 0 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
           sx={{
-            textAlign: align,
+            textAlign: ['left', 'left', align],
             color: state.hover ? 'primary' : 'text',
             overflowY: 'hidden',
           }}

@@ -9,7 +9,6 @@ const Projects = () => {
     <Flex sx={{ minHeight: 'inherit', alignItems: 'center' }}>
       <Flex
         sx={{
-          maxHeight: '40vh',
           flexWrap: 'wrap',
           flexDirection: 'row',
           justifyContent: 'space-between',

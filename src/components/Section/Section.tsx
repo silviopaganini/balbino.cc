@@ -15,8 +15,12 @@ const Section = ({ as = 'section', children, id, sx }: PropsWithChildren<Props>)
       as={as}
       sx={{
         position: 'relative',
-        minHeight: `calc(100vh - ${theme.space![5]}px - ${theme.space![5]}px)`,
-        mb: 5,
+        minHeight: [
+          `calc(100vh - ${theme.space![3]}px - ${theme.space![3]}px)`,
+          `calc(100vh - ${theme.space![3]}px - ${theme.space![3]}px)`,
+          `calc(100vh - ${theme.space![5]}px - ${theme.space![5]}px)`,
+        ],
+        mb: [0, 0, 5],
         ...sx,
       }}
     >

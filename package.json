@@ -31,7 +31,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "prettier --write './**/*.{js,jsx,ts,tsx}'",
-    "deploy": "yarn build && node_modules/.bin/firebase deploy",
+    "deploy": "rm -rf build && yarn build && node_modules/.bin/firebase deploy",
     "tsc": "tsc --noEmit --skipLibCheck --project tsconfig.json"
   },
   "eslintConfig": {

@@ -38,7 +38,7 @@ const Page = ({ page, visible }: Props) => {
         bg: 'black',
         width: '100%',
         height: '100%',
-        px: 6,
+        px: [4, 4, 6],
         position: 'fixed',
         top: 0,
         left: 0,

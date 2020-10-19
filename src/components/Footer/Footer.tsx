@@ -28,8 +28,8 @@ const Footer = ({ onClickAbout, firstProjectSlug }: Props) => {
   return (
     <Grid
       sx={{
-        paddingY: 5,
-        paddingX: 6,
+        paddingY: [2, 2, 5],
+        paddingX: [2, 2, 6],
         left: 0,
         bottom: 0,
         position: 'fixed',

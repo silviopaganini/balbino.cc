@@ -30,7 +30,7 @@ const Container = ({ children, sx, as = 'div' }: Props) => {
   }
 
   return (
-    <VisibilitySensor partialVisibility minTopValue={200} onChange={onChange}>
+    <VisibilitySensor partialVisibility onChange={onChange}>
       <AnimBox
         as={as}
         animate={state ? 'visible' : 'hidden'}

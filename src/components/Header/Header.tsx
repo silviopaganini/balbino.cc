@@ -20,8 +20,8 @@ const Header = () => {
   return (
     <Grid
       sx={{
-        paddingX: 6,
-        paddingY: 5,
+        paddingY: [2, 2, 5],
+        paddingX: [2, 2, 6],
         left: 0,
         top: 0,
         position: 'fixed',
@@ -39,7 +39,7 @@ const Header = () => {
           selected work 2015 — {new Date().getFullYear()}
         </Link>
       </Box>
-      <Box sx={{ textAlign: 'right' }}>London, UK {time}</Box>
+      <Box sx={{ textAlign: 'right', display: ['none', 'none', 'block'] }}>London, UK {time}</Box>
     </Grid>
   )
 }

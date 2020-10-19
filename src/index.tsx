@@ -6,6 +6,7 @@ import { ThemeProvider } from 'theme-ui'
 import App from './components/App'
 import * as serviceWorker from './serviceWorker'
 import theme from './theme'
+import './fonts.css'
 
 import smoothscroll from 'smoothscroll-polyfill'
 smoothscroll.polyfill()

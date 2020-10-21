@@ -28,7 +28,7 @@ const Image = ({ src }: Props) => {
   }
 
   return (
-    <VisibilitySensor partialVisibility minTopValue={200} onChange={onChange}>
+    <VisibilitySensor partialVisibility minTopValue={199} onChange={onChange}>
       <AnimImage
         animate={state ? 'visible' : 'hidden'}
         variants={variants}

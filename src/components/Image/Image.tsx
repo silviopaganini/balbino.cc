@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Image as I } from 'theme-ui'
-import VisibilitySensor from 'react-visibility-sensor'
+import LazyLoad from 'react-lazyload'
+
 import { motion } from 'framer-motion'
 
 type Props = {
@@ -21,23 +22,17 @@ const Image = ({ src }: Props) => {
     },
   }
 
-  const [state, setState] = useState(false)
-
-  const onChange = (isVisible: boolean) => {
-    if (!state && isVisible) setState(isVisible)
-  }
-
   return (
-    <VisibilitySensor partialVisibility minTopValue={200} onChange={onChange}>
+    <LazyLoad once height="100vh">
       <AnimImage
-        animate={state ? 'visible' : 'hidden'}
+        animate={'visible'}
         variants={variants}
         transition={{ duration: 1, ease: 'easeInOut' }}
         initial="hidden"
         src={src}
         variant="project"
       />
-    </VisibilitySensor>
+    </LazyLoad>
   )
 }
 

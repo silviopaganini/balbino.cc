@@ -21,6 +21,7 @@ const ScrollToDiscover = () => {
         left: 0,
         width: '100vw',
         height: '100vh',
+        zIndex: 100000,
       }}
     >
       <AnimBox

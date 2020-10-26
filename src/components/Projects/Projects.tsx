@@ -25,7 +25,7 @@ const Projects = () => {
           gap={0}
           sx={{
             width: '100%',
-            gridTemplateColumns: '45% 55%',
+            gridTemplateColumns: ['100%', '100%', '45% 55%'],
           }}
         >
           {projects.map((m, index) => (

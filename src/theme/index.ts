@@ -8,7 +8,7 @@ export default {
     body: 'NHaasGroteskDSPro-55Rg',
     heading: 'inherit',
   },
-  fontSizes: [16, 24, 32, 56],
+  fontSizes: [16, 24, 32, 56, 80],
   fontWeights: {
     body: 400,
     heading: 500,
@@ -21,14 +21,14 @@ export default {
   colors: {
     text: '#000',
     background: '#fff',
-    primary: '#C1C4B7',
+    primary: '#000',
     hover: '#F3FF70',
     link: '#C1C4B7',
     modes: {
       default: {
         text: '#000',
         background: '#fff',
-        primary: '#C1C4B7',
+        primary: '#000',
         link: '#C1C4B7',
         linkBody: '#C1C4B7',
       },
@@ -96,6 +96,13 @@ export default {
       fontSize: [0, 1, 2],
       py: [2, 2, 3],
     },
+    heading: {
+      color: 'text',
+      fontFamily: 'heading',
+      lineHeight: 'heading',
+      fontWeight: 'heading',
+      fontSize: 4,
+    },
   },
   styles: {
     '*': {
@@ -110,7 +117,23 @@ export default {
       position: 'relative',
       cursor: 'none !important',
     },
+    hr: {
+      border: '0px',
+      bg: 'black',
+      height: '2px',
+      width: 'calc(100% + 160px)',
+      mx: '-80px',
+      my: 6,
+    },
     h1: {
+      color: 'text',
+      fontFamily: 'heading',
+      lineHeight: 'heading',
+      fontWeight: 'heading',
+      fontSize: 4,
+      display: ['none', 'none', 'block'],
+    },
+    h2: {
       color: 'text',
       fontFamily: 'heading',
       lineHeight: 'heading',
@@ -124,7 +147,7 @@ export default {
       lineHeight: 'body',
     },
     a: {
-      color: 'link',
+      color: 'primary',
       textDecoration: 'none',
       transition: 'color .2s',
       cursor: 'none !important',

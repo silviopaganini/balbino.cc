@@ -1,22 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Box, Grid } from 'theme-ui'
-import moment from 'moment-timezone'
 import Link from 'components/Link'
-moment().tz('America/Los_Angeles').format()
+import useTime from 'hooks/useTime'
 
 const Header = () => {
-  const [time, setTime] = useState(moment().tz('Europe/London').format('HH:mm:ss'))
-  // const [aboutVisible] = useGlobalState('about')
-  useEffect(() => {
-    const updateTime = () => {
-      setTime(moment().tz('Europe/London').format('HH:mm:ss'))
-    }
-
-    const interval = setInterval(updateTime, 500)
-    return () => {
-      clearInterval(interval)
-    }
-  })
+  const time = useTime('Europe/London')
   return (
     <Grid
       sx={{
@@ -28,18 +16,20 @@ const Header = () => {
         width: '100%',
         color: 'primary',
         zIndex: 100,
+        gridTemplateColumns: 'repeat(3, 33%)',
       }}
       as="header"
       gap={0}
-      width="50%"
     >
-      <Box>
+      <Box sx={{ gridColumn: 1 }}>
         <Link to="home">
           marcosbalbino ©<br />
           selected work 2015 — {new Date().getFullYear()}
         </Link>
       </Box>
-      <Box sx={{ textAlign: 'right', display: ['none', 'none', 'block'] }}>London, UK {time}</Box>
+      <Box sx={{ gridColumn: 2, textAlign: 'center', display: ['none', 'none', 'block'] }}>
+        London, UK {time}
+      </Box>
     </Grid>
   )
 }

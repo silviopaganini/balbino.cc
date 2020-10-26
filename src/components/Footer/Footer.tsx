@@ -1,5 +1,6 @@
 import { Link } from 'components'
 import { motion } from 'framer-motion'
+import useTime from 'hooks/useTime'
 import React, { useEffect, useState } from 'react'
 import { useGlobalState } from 'state'
 import { Box, Grid } from 'theme-ui'
@@ -13,6 +14,7 @@ const Div = motion.custom(Box)
 
 const Footer = ({ onClickAbout, firstProjectSlug }: Props) => {
   const [aboutVisible] = useGlobalState('about')
+  const time = useTime('America/Sao_Paulo')
   const [showScroll, setShowScroll] = useState(true)
   useEffect(() => {
     const onScroll = () => {
@@ -36,18 +38,21 @@ const Footer = ({ onClickAbout, firstProjectSlug }: Props) => {
         width: '100%',
         color: 'primary',
         zIndex: 100,
+        gridTemplateColumns: 'repeat(3, 33%)',
       }}
       as="header"
       gap={0}
-      width="50%"
     >
       <Div
         animate={{ opacity: showScroll ? 1 : 0 }}
-        sx={{ pointerEvents: showScroll ? 'visible' : 'none' }}
+        sx={{ gridColumn: 1, pointerEvents: showScroll ? 'visible' : 'none' }}
       >
         {!aboutVisible && <Link to={firstProjectSlug}>Scroll to see more</Link>}
       </Div>
-      <Box sx={{ textAlign: 'right' }}>
+      <Box sx={{ gridColumn: 2, textAlign: 'center', display: ['none', 'none', 'block'] }}>
+        São Paulo, BR {time}
+      </Box>
+      <Box sx={{ textAlign: 'right', gridColumn: 3 }}>
         <Link onClick={onClickAbout}>{!aboutVisible ? 'About Marcos' : 'Back'}</Link>
       </Box>
     </Grid>

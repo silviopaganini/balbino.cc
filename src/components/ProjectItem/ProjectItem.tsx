@@ -85,6 +85,7 @@ const ProjectItem = ({ index, project, align = 'left' }: Props) => {
           onMouseOver={onMouseOver}
           animate={{ x: state.hover ? (align === 'left' ? 60 : -60) : 0 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
+          as="h2"
           sx={{
             textAlign: ['left', 'left', align],
             color: state.hover ? 'primary' : 'text',

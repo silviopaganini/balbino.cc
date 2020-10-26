@@ -88,7 +88,7 @@ const ProjectItem = ({ index, project, align = 'left' }: Props) => {
           as="h2"
           sx={{
             textAlign: ['left', 'left', align],
-            color: state.hover ? 'primary' : 'text',
+            color: state.hover ? 'link' : 'text',
             overflowY: 'hidden',
           }}
           variant="projectItem"

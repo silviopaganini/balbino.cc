@@ -16,7 +16,7 @@ const Header = () => {
         width: '100%',
         color: 'primary',
         zIndex: 100,
-        gridTemplateColumns: 'repeat(3, 33%)',
+        gridTemplateColumns: '45% 27.5% 27.5%',
       }}
       as="header"
       gap={0}
@@ -27,9 +27,7 @@ const Header = () => {
           selected work 2015 — {new Date().getFullYear()}
         </Link>
       </Box>
-      <Box sx={{ gridColumn: 2, textAlign: 'center', display: ['none', 'none', 'block'] }}>
-        London, UK {time}
-      </Box>
+      <Box sx={{ gridColumn: 2, display: ['none', 'none', 'block'] }}>London, UK {time}</Box>
     </Grid>
   )
 }

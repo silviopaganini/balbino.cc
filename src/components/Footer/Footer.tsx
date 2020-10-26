@@ -38,7 +38,7 @@ const Footer = ({ onClickAbout, firstProjectSlug }: Props) => {
         width: '100%',
         color: 'primary',
         zIndex: 100,
-        gridTemplateColumns: 'repeat(3, 33%)',
+        gridTemplateColumns: '45% 27.5% 27.5%',
       }}
       as="header"
       gap={0}
@@ -49,9 +49,7 @@ const Footer = ({ onClickAbout, firstProjectSlug }: Props) => {
       >
         {!aboutVisible && <Link to={firstProjectSlug}>Scroll to see more</Link>}
       </Div>
-      <Box sx={{ gridColumn: 2, textAlign: 'center', display: ['none', 'none', 'block'] }}>
-        São Paulo, BR {time}
-      </Box>
+      <Box sx={{ gridColumn: 2, display: ['none', 'none', 'block'] }}>São Paulo, BR {time}</Box>
       <Box sx={{ textAlign: 'right', gridColumn: 3 }}>
         <Link onClick={onClickAbout}>{!aboutVisible ? 'About Marcos' : 'Back'}</Link>
       </Box>

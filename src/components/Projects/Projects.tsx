@@ -1,6 +1,6 @@
 import React from 'react'
 import { useGlobalState } from 'state'
-import { Divider, Flex, Heading } from 'theme-ui'
+import { Divider, Flex, Grid, Heading } from 'theme-ui'
 import ProjectItem from '../ProjectItem'
 
 const Projects = () => {
@@ -21,22 +21,17 @@ const Projects = () => {
       </Heading>
       <Divider sx={{ display: ['none', 'none', 'block'] }} />
       <Flex sx={{ minHeight: '100%', alignItems: 'center' }}>
-        <Flex
+        <Grid
+          gap={0}
           sx={{
-            flexWrap: 'wrap',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
+            width: '100%',
+            gridTemplateColumns: '45% 55%',
           }}
         >
           {projects.map((m, index) => (
-            <ProjectItem
-              index={index}
-              align={index % 2 !== 0 ? 'right' : 'left'}
-              key={index}
-              project={m}
-            />
+            <ProjectItem index={index} key={index} project={m} />
           ))}
-        </Flex>
+        </Grid>
       </Flex>
     </Flex>
   )

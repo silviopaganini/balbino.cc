@@ -8,7 +8,7 @@ export default {
     body: 'NHaasGroteskDSPro-55Rg',
     heading: 'inherit',
   },
-  fontSizes: [16, 24, 32, 56, 80],
+  fontSizes: [16, 24, 32, 44, 80],
   fontWeights: {
     body: 400,
     heading: 500,

@@ -63,8 +63,6 @@ const ProjectItem = ({ index, project, align = 'left' }: Props) => {
     <Flex
       sx={{
         gridColumn: [1, 1, index % 2 === 0 ? 1 : 2],
-        // width: ['100%', '100%', '50%'],
-        justifyContent: ['left', 'left', align === 'left' ? 'flex-start' : 'flex-end'],
         position: 'relative',
       }}
     >

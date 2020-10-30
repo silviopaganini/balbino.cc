@@ -8,7 +8,8 @@ export default {
     body: 'NHaasGroteskDSPro-55Rg',
     heading: 'inherit',
   },
-  fontSizes: [16, 24, 32, 44, 80],
+  breakpoints: ['40em', '60em', '64em'],
+  fontSizes: [16, 24, 32, 44, '8vmin'],
   fontWeights: {
     body: 400,
     heading: 500,
@@ -123,7 +124,7 @@ export default {
       height: '2px',
       width: 'calc(100% + 160px)',
       mx: '-80px',
-      my: 6,
+      my: '6vmin',
     },
     h1: {
       color: 'text',

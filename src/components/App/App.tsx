@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { ScrollToDiscover, Project, Loading } from 'components'
+import { Project, Loading } from 'components'
 import { useQuery } from '@apollo/client'
 import { useGlobalState } from 'state'
 import { query } from '../../gql'
@@ -48,7 +48,6 @@ const App = () => {
           </Section>
         ))}
       {aboutPage && <Page visible={aboutVisible} page={aboutPage} />}
-      <ScrollToDiscover />
       <Footer
         firstProjectSlug={content.projects.length > 0 ? content.projects[0].slug : undefined}
         onClickAbout={onClickAbout}

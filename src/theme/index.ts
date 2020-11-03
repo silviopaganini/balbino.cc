@@ -50,7 +50,7 @@ export default {
   links: {
     body: {
       color: 'linkBody',
-      cursor: 'none !important',
+      cursor: 'url("/cursor.svg"), auto',
     },
     default: {
       variant: 'styles.a',
@@ -58,7 +58,7 @@ export default {
   },
   buttons: {
     primary: {
-      cursor: 'none !important',
+      cursor: 'url("/cursor.svg"), auto',
       backgroundColor: 'background',
       borderWidth: '2px',
       borderStyle: 'solid',
@@ -111,7 +111,6 @@ export default {
   styles: {
     '*': {
       boxSizing: 'border-box',
-      cursor: 'none !important',
     },
     root: {
       fontFamily: 'body',
@@ -119,7 +118,7 @@ export default {
       fontWeight: 'body',
       padding: [3, 3, '60px 80px'],
       position: 'relative',
-      cursor: 'none !important',
+      cursor: 'url("/cursor.svg"), auto',
     },
     hr: {
       border: '0px',
@@ -154,7 +153,7 @@ export default {
       color: 'primary',
       textDecoration: 'none',
       transition: 'color .2s',
-      cursor: 'none !important',
+      cursor: 'url("/cursor.svg"), auto',
       '&:hover': {
         color: 'hover',
       },

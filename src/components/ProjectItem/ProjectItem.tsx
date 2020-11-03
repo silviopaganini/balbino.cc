@@ -21,9 +21,15 @@ const IconHover = ({ align }: PropsIcon) => (
   <Box
     sx={{
       transform: align === 'left' ? null : 'rotate(180deg)',
+      width: ['15px', '15px', '47px'],
+      height: ['17.625px', '17.625px', '40px'],
+      '@media screen and (max-height: 600px)': {
+        width: '15px',
+        height: '17.625px',
+      },
     }}
   >
-    <svg width={47} height={40} viewBox="0 0 47 40" fill="none">
+    <svg width="100%" height="100%" viewBox="0 0 47 40" fill="none">
       <path
         d="M27.135 39.222c0-10.763 8.725-19.488 19.488-19.488M46.623 19.488C35.86 19.488 27.135 10.763 27.135 0M45.883 19.734H0"
         stroke="#C1C4B7"
@@ -59,6 +65,8 @@ const ProjectItem = ({ index, project, align = 'left' }: Props) => {
     },
   }
 
+  const moveAmount = window.innerHeight > 600 ? 60 : 18
+
   return (
     <Flex
       sx={{
@@ -71,7 +79,10 @@ const ProjectItem = ({ index, project, align = 'left' }: Props) => {
           sx={{
             position: 'absolute',
             [align]: 0,
-            top: 12,
+            top: [0, 0, '6px'],
+            '@media screen and (max-height: 600px)': {
+              top: '2px',
+            },
           }}
         >
           <IconHover align={align} />
@@ -82,7 +93,7 @@ const ProjectItem = ({ index, project, align = 'left' }: Props) => {
         <AnimHeading
           onMouseOut={onMouseOut}
           onMouseOver={onMouseOver}
-          animate={{ x: state.hover ? (align === 'left' ? 60 : -60) : 0 }}
+          animate={{ x: state.hover ? (align === 'left' ? moveAmount : -moveAmount) : 0 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
           as="h2"
           sx={{

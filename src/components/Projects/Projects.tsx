@@ -14,7 +14,7 @@ const Projects = () => {
       }}
     >
       <Heading
-        sx={{ maxWidth: 1200, textAlign: 'left', display: ['none', 'none', 'block'] }}
+        sx={{ maxWidth: 1100, textAlign: 'left', display: ['none', 'none', 'block'] }}
         as="h1"
       >
         Visual Designer and Art Director from São Paulo based in London.

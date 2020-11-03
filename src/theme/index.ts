@@ -8,8 +8,8 @@ export default {
     body: 'NHaasGroteskDSPro-55Rg',
     heading: 'inherit',
   },
-  breakpoints: ['40em', '60em', '64em'],
-  fontSizes: [16, 24, 32, 44, '8vmin'],
+  breakpoints: ['38em', '60em', '64em'],
+  fontSizes: [16, 20, 24, 32, 44, '6vmin', '8vmin'],
   fontWeights: {
     body: 400,
     heading: 500,
@@ -87,14 +87,17 @@ export default {
       fontFamily: 'heading',
       lineHeight: 'heading',
       fontWeight: 'heading',
-      fontSize: [2, 2, 3],
+      fontSize: [3, 3, 4],
+      '@media screen and (max-height: 600px)': {
+        fontSize: 1,
+      },
     },
     p: {
       color: 'text',
       fontFamily: 'body',
       lineHeight: 'body',
       fontWeight: 'body',
-      fontSize: [0, 1, 2],
+      fontSize: [0, 2, 3],
       py: [2, 2, 3],
     },
     heading: {
@@ -102,7 +105,7 @@ export default {
       fontFamily: 'heading',
       lineHeight: 'heading',
       fontWeight: 'heading',
-      fontSize: 4,
+      fontSize: 5,
     },
   },
   styles: {
@@ -131,7 +134,7 @@ export default {
       fontFamily: 'heading',
       lineHeight: 'heading',
       fontWeight: 'heading',
-      fontSize: 4,
+      fontSize: [5, 6],
       display: ['none', 'none', 'block'],
     },
     h2: {
@@ -139,7 +142,7 @@ export default {
       fontFamily: 'heading',
       lineHeight: 'heading',
       fontWeight: 'heading',
-      fontSize: 1,
+      fontSize: [0, 1, 1],
     },
     p: {
       color: 'text',

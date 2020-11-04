@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from 'react'
-import { useGlobalState } from 'state'
 import { Link, SxStyleProp } from 'theme-ui'
 
 type Props = {
@@ -10,6 +9,8 @@ type Props = {
   sx?: SxStyleProp
   variant?: string
   onClick?(): void
+  onMouseOut?(): void
+  onMouseOver?(): void
 }
 
 const LinkScroll = ({
@@ -20,16 +21,9 @@ const LinkScroll = ({
   rel,
   target,
   onClick,
+  onMouseOver,
+  onMouseOut,
 }: PropsWithChildren<Props>) => {
-  const [uiState, setUiState] = useGlobalState('ui')
-
-  const onMouseOver = () => {
-    setUiState({ ...uiState, showCircle: false })
-  }
-  const onMouseOut = () => {
-    setUiState({ ...uiState, showCircle: true })
-  }
-
   return (
     <Link
       variant={variant}

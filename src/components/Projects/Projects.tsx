@@ -14,12 +14,10 @@ const Projects = () => {
       }}
     >
       <Heading
-        sx={{ maxWidth: 1200, textAlign: 'left', display: ['none', 'none', 'block'] }}
+        sx={{ maxWidth: 1050, textAlign: 'left', display: ['none', 'none', 'block'] }}
         as="h1"
       >
-        Visual Designer and Art Director from
-        <br />
-        São Paulo based in London.
+        Visual Designer and Art Director from São Paulo based in London.
       </Heading>
       <Divider sx={{ display: ['none', 'none', 'block'] }} />
       <Flex sx={{ minHeight: '100%', alignItems: 'center' }}>

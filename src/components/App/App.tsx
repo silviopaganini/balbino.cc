@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client'
 import { useGlobalState } from 'state'
 import { query } from '../../gql'
 import { Footer, Section, Header, Projects, Page } from '../'
-import { useColorMode } from 'theme-ui'
+import { Flex, useColorMode } from 'theme-ui'
 
 const App = () => {
   const { loading, error, data } = useQuery(query)
@@ -21,7 +21,22 @@ const App = () => {
     setMode('default')
   }, [data, setContent, setMode])
 
-  if (loading || content.projects.length < 1) return <Loading />
+  if (loading || content.projects.length < 1)
+    return (
+      <Flex
+        sx={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Loading />
+      </Flex>
+    )
   if (error) return <p>Error :(</p>
 
   const aboutPage = content.pages.find(p => p.slug === 'about')

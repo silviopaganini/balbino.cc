@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
 import { Box, SxStyleProp } from 'theme-ui'
-import VisibilitySensor from 'react-visibility-sensor'
 import { motion } from 'framer-motion'
+import useVisible from 'hooks/useVisible'
 
 type Props = {
   children: JSX.Element[]
@@ -23,25 +23,21 @@ const Container = ({ children, sx, as = 'div' }: Props) => {
     },
   }
 
-  const [state, setState] = useState(false)
-
-  const onChange = (isVisible: boolean) => {
-    if (!state && isVisible) setState(isVisible)
-  }
+  const node = useRef(null)
+  const isVisible = useVisible(node)
 
   return (
-    <VisibilitySensor partialVisibility onChange={onChange}>
-      <AnimBox
-        as={as}
-        animate={state ? 'visible' : 'hidden'}
-        variants={variants}
-        transition={{ duration: 1, ease: 'easeInOut' }}
-        initial="hidden"
-        sx={{ position: 'relative', ...sx }}
-      >
-        {children}
-      </AnimBox>
-    </VisibilitySensor>
+    <AnimBox
+      ref={node}
+      as={as}
+      animate={isVisible ? 'visible' : 'hidden'}
+      variants={variants}
+      transition={{ duration: 1, ease: 'easeInOut' }}
+      initial="hidden"
+      sx={{ position: 'relative', ...sx }}
+    >
+      {children}
+    </AnimBox>
   )
 }
 

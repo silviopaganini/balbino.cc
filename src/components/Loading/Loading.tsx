@@ -1,23 +1,13 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import { Flex, Box } from 'theme-ui'
+import { Box } from 'theme-ui'
 
 const Dot = motion.custom(Box)
 
 const Loading = () => {
   const dots = new Array(3).fill(null).map((_a, index) => index)
   return (
-    <Flex
-      sx={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
+    <>
       {dots.map((_d, index) => (
         <Dot
           key={index}
@@ -39,7 +29,7 @@ const Loading = () => {
           }}
         />
       ))}
-    </Flex>
+    </>
   )
 }
 

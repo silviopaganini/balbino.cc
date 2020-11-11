@@ -1,43 +1,57 @@
-import React, { useState } from 'react'
-import { Image as I } from 'theme-ui'
-import VisibilitySensor from 'react-visibility-sensor'
-import { motion } from 'framer-motion'
+import React, { useRef } from 'react'
+import { Box, Image as I } from 'theme-ui'
+import { AnimatePresence, motion } from 'framer-motion'
+import useVisible from 'hooks/useVisible'
 
 type Props = {
   src: string
 }
 
-const AnimImage = motion.custom(I)
+const AnimBox = motion.custom(Box)
 
-const Image = ({ src }: Props) => {
-  const variants = {
-    hidden: {
-      opacity: 0,
-      y: '50px',
-    },
-    visible: {
-      opacity: 1,
-      y: '0',
-    },
-  }
+const Image = ({ src, ...props }: Props) => {
+  const node = useRef(null)
+  const isVisible = useVisible(node)
 
-  const [state, setState] = useState(false)
-
-  const onChange = (isVisible: boolean) => {
-    if (!state && isVisible) setState(isVisible)
-  }
+  //@ts-ignore
+  const isHeader = props['data-type'] || false
 
   return (
-    <VisibilitySensor partialVisibility minTopValue={199} onChange={onChange}>
-      <AnimImage
-        animate={state ? 'visible' : 'hidden'}
-        variants={variants}
-        transition={{ duration: 1, ease: 'easeInOut' }}
-        initial="hidden"
-        src={src}
-        variant="project"
-      />
-    </VisibilitySensor>
+    <Box
+      ref={node}
+      sx={{
+        width: '100%',
+        pt: isHeader ? '28.125%' : '56.25%',
+        position: 'relative',
+        my: isHeader ? 0 : 3,
+      }}
+    >
+      {isVisible && (
+        <AnimatePresence>
+          <AnimBox
+            sx={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
+            initial={{
+              opacity: 0,
+              y: '50px',
+            }}
+          >
+            <I src={src} variant="project" />
+          </AnimBox>
+        </AnimatePresence>
+      )}
+    </Box>
   )
 }
 

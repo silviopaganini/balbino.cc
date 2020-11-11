@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
 import { Text } from 'theme-ui'
-import VisibilitySensor from 'react-visibility-sensor'
 import { motion } from 'framer-motion'
+import useVisible from 'hooks/useVisible'
 
 type Props = {
   children: JSX.Element
@@ -21,24 +21,20 @@ const Paragraph = ({ children }: Props) => {
     },
   }
 
-  const [state, setState] = useState(false)
-
-  const onChange = (isVisible: boolean) => {
-    if (!state && isVisible) setState(isVisible)
-  }
+  const node = useRef(null)
+  const isVisible = useVisible(node)
 
   return (
-    <VisibilitySensor partialVisibility minTopValue={200} onChange={onChange}>
-      <AnimBox
-        animate={state ? 'visible' : 'hidden'}
-        variants={variants}
-        transition={{ duration: 1, ease: 'easeInOut' }}
-        initial="hidden"
-        variant="p"
-      >
-        {children}
-      </AnimBox>
-    </VisibilitySensor>
+    <AnimBox
+      ref={node}
+      animate={isVisible ? 'visible' : 'hidden'}
+      variants={variants}
+      transition={{ duration: 1, ease: 'easeInOut' }}
+      initial="hidden"
+      variant="p"
+    >
+      {children}
+    </AnimBox>
   )
 }
 
